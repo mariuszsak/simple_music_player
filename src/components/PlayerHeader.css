@@ -1,0 +1,28 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1%;
+  background: #68a4c4;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.headerTitle {
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 3vw, 5rem);
+  font-weight: 700;
+  color: #f3f8fa;
+  background: #68a4c4;
+}
+
+.noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*# sourceMappingURL=PlayerHeader.css.map */

@@ -1,0 +1,70 @@
+.controlsContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-radius: 0.5em;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.button {
+  background: #f3f8fa;
+  padding: 1rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  line-height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.button:hover {
+  background: #f3f8fa;
+  color: red;
+  box-shadow: 0 0 10px #32627b;
+}
+
+.button:hover:active {
+  color: #a2cce3;
+}
+
+.noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltipText {
+  top: -2rem;
+  visibility: hidden;
+  width: 90px;
+  background-color: #a2cce3;
+  color: #f3f8fa;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  font-size: clamp(0.7rem, 1vw, 1.5rem);
+}
+
+.tooltip:hover .tooltipText {
+  visibility: visible;
+}
+
+@media screen and (min-width: 500px) {
+  .controlsContainer {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=Controls.css.map */
