@@ -6,9 +6,6 @@
 .pnp.js
 .idea
 
-# deployment
-/public
-
 # testing
 /coverage
 
