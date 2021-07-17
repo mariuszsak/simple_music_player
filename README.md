@@ -2,6 +2,10 @@
 
 Just simple music app.
 
+## Live demo
+
+[https://simplemusicapp.netlify.app](https://simplemusicapp.netlify.app)
+
 ## Available Scripts
 
 In the project directory, you can run:
