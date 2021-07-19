@@ -6,36 +6,36 @@ import './PlayerContainer.css';
 
 const PlayerContainer = ({songs, currentSong, onCurrentSongChange}: ISongList) => {
 
-    const handleClick = (e: any) => {
-        onCurrentSongChange(e);
+    const handleClick = (audioUrl: string) => {
+        onCurrentSongChange(audioUrl);
     }
 
     return (
         <div className='playerContainer'>
             <div className='songContainer'>
-                {songs.map((element: Song) =>
+                {songs.map((song: Song) =>
                     <div
-                        key={element.title}
+                        key={song.title}
                         className='songItem'
-                        onClick={() => handleClick(element.audioUrl)}
+                        onClick={()=>handleClick(song.audioUrl)}
                     >
                         <div
-                            className={currentSong.audioUrl === element.audioUrl
+                            className={currentSong.audioUrl === song.audioUrl
                                 ?
                                 'songTitle--selected noSelect'
                                 :
                                 'songTitle noSelect'}
                         >
-                            {element.title}
+                            {song.title}
                         </div>
                         <div
-                            className={currentSong.audioUrl === element.audioUrl
+                            className={currentSong.audioUrl === song.audioUrl
                                 ?
                                 'songArtist--selected noSelect'
                                 :
                                 'songArtist noSelect'}
                         >
-                            by {element.artist}
+                            by {song.artist}
                         </div>
                     </div>
                 )}
