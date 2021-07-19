@@ -1,9 +1,10 @@
 import {Song} from '../util/type';
+import {songsApi} from "../endpoints";
 
-async function fetchSong(): Promise<Song[]> {
-    const API = 'https://examples.devmastery.pl/songs-api/songs'
-    const response: Response = await fetch(API);
+async function fetchSongs(): Promise<Song[]> {
+
+    const response: Response = await fetch(songsApi);
     return response.json();
 }
 
-export default fetchSong;
+export default fetchSongs;

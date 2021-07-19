@@ -20,7 +20,7 @@ export interface ISong {
 export interface ISongList {
     songs: Song[];
     currentSong: Song;
-    onCurrentSongChange: (data: MouseEventHandler<HTMLDivElement>) => void;
+    onCurrentSongChange: (data: string) => void;
 }
 
 export interface ISongs {
