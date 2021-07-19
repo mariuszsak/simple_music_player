@@ -1,3 +1,3 @@
 const URL = 'https://examples.devmastery.pl/'
 
-export const songsApi = URL + 'songs-api/songss';
+export const songsApi = URL + 'songs-api/songs';
