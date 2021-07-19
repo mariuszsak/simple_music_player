@@ -36,31 +36,25 @@ const Controls = ({
 
     const updateCurrentSong = (source: Song) => {
         setSource(source);
-        if (audioRef.current) {
-            audioRef.current.play().then(_ => {
-                audioRef.current?.pause();
-                audioRef.current?.load();
-                audioRef.current?.play();
-            });
-        }
+        audioRef.current!.play().then(_ => {
+            audioRef.current!.pause();
+            audioRef.current!.load();
+            audioRef.current!.play().then();
+        });
     }
 
     const play = () => {
-        if (audioRef.current) {
-            audioRef.current.play().then(_ => {
-                audioRef.current?.play();
-                setIsPlaying(true);
-            });
-        }
+        audioRef.current!.play().then(_ => {
+            audioRef.current!.play().then();
+            setIsPlaying(true);
+        });
     }
 
     const pause = () => {
-        if (audioRef.current !== null) {
-            audioRef.current.play().then(_ => {
-                setIsPlaying(false);
-                audioRef.current?.pause();
-            });
-        }
+        audioRef.current!.play().then(_ => {
+            setIsPlaying(false);
+            audioRef.current!.pause();
+        });
     }
 
     const handlePlayClick = () => {
@@ -68,11 +62,9 @@ const Controls = ({
     }
 
     const handleStopClick = () => {
-        if (audioRef.current) {
-            audioRef.current.pause();
-            audioRef.current.currentTime = 0;
-            setIsPlaying(false);
-        }
+        audioRef.current!.pause();
+        audioRef.current!.currentTime = 0;
+        setIsPlaying(false);
     }
 
     const handleStepBackward = () => {
@@ -84,37 +76,21 @@ const Controls = ({
     }
 
     const handleBackward = () => {
-        if (audioRef.current) {
-            audioRef.current.currentTime = audioRef.current.currentTime - 5;
-        }
+        audioRef.current!.currentTime -= 5;
     }
 
     const handleForward = () => {
-        if (audioRef.current) {
-            audioRef.current.currentTime = audioRef.current.currentTime + 5;
-        }
+        audioRef.current!.currentTime += 5;
     }
 
     const handleVolumeDown = () => {
-        if (audioRef.current) {
-            currentVolume > 0
-                ?
-                setCurrentVolume(currentVolume - 10)
-                :
-                setCurrentVolume(0)
-            audioRef.current.volume = currentVolume / 100;
-        }
+        setCurrentVolume(currentVolume > 0 ? currentVolume - 10 : 0);
+        audioRef.current!.volume = currentVolume / 100;
     }
 
     const handleVolumeUp = () => {
-        if (audioRef.current) {
-            (currentVolume < 100)
-                ?
-                setCurrentVolume(currentVolume + 10)
-                :
-                setCurrentVolume(100)
-            audioRef.current.volume = currentVolume / 100;
-        }
+        setCurrentVolume(currentVolume < 100 ? currentVolume + 10 : 100);
+        audioRef.current!.volume = currentVolume / 100;
     }
 
     return (
@@ -154,11 +130,11 @@ const Controls = ({
             </div>
             <div className='button noSelect tooltip' onClick={handleVolumeDown}>
                 <FontAwesomeIcon color='#68a4c4' icon={faVolumeDown}/>
-                <div className='tooltipText'>vol +</div>
+                <div className='tooltipText'>vol -</div>
             </div>
             <div className='button noSelect tooltip' onClick={handleVolumeUp}>
                 <FontAwesomeIcon color='#68a4c4' icon={faVolumeUp}/>
-                <div className='tooltipText'>vol -</div>
+                <div className='tooltipText'>vol +</div>
             </div>
         </div>
     );
